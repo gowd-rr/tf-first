@@ -41,7 +41,7 @@ variable "my_count" {
 variable "my_pet" {
   description = "This is pet leagght"
   type        = number
-  default     = 2
+  default     = 5
 }
 
 
