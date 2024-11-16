@@ -1,10 +1,10 @@
 terraform {
-  backend "s3" {
-    bucket         = "my-first-bcket-one"
-    key            = "dev/terrafrom.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-id"
-  }
+  # backend "s3" {
+  #   bucket         = "my-first-bcket-one"
+  #   key            = "dev/terrafrom.tfstate"
+  #   region         = "us-east-1"
+  #   dynamodb_table = "terraform-id"
+  # }
   required_version = "~> 1.9"
   required_providers {
     aws = {
