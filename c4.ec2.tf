@@ -5,7 +5,7 @@ resource "aws_instance" "web" {
   # availability_zone = "us-east-1a"
   subnet_id              = aws_subnet.my_subnet.id
   key_name               = var.my_key["first"]
-#   user_data              = file("apache.sh")
+  user_data              = file("apache.sh")
   count                  = var.my_count
   vpc_security_group_ids = [aws_security_group.my_seg_http-new.id, aws_security_group.my_seg_https.id, aws_security_group.my_seg_ssh.id]
   tags = {
@@ -14,20 +14,6 @@ resource "aws_instance" "web" {
     "vpc"   = aws_vpc.my_vpc.id
   }
   depends_on = [aws_vpc.my_vpc]
-
-  connection {
-    type        = "ssh"
-    host        = self.public_ip
-    user        = "ec2-user"
-    private_key = file("C:/Users/Lenovo/Downloads/test-aws.pem")
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo yum update",
-      "sudo yum install -y nginx",
-    ]
-  }
 }
 
 

@@ -2,7 +2,7 @@ resource "aws_security_group" "my_seg_ssh" {
   name        = "ssh-${terraform.workspace}"
   description = "this is for ssh only"
   # count = terraform.workspace == "default" ? 1 : 1
-  vpc_id      = aws_vpc.my_vpc.id
+  vpc_id = aws_vpc.my_vpc.id
   ingress {
     description = "this is aws ssh ingress"
     from_port   = "22"
