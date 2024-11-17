@@ -28,7 +28,7 @@ variable "my_zone" {
 
 variable "my_count" {
   description = "this is count of instance"
-  default     = 1
+  default     = 10
   type        = number
 }
 
